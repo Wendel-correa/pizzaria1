@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.com.tech4pizza.pizzaria.model.Pizza;
+//import br.com.tech4pizza.pizzaria.repository.PizzaRepository;
 import br.com.tech4pizza.pizzaria.service.PizzaService;
 
 
@@ -47,7 +49,7 @@ public class PizzaController {
   
   @PutMapping ("/{id}")
       public Pizza atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
-        return servico.AtualizartPizzaPorId(id, pizza);
+        return servico.AtualizartPizzaPorId(;, pizza)
         
       
       }    

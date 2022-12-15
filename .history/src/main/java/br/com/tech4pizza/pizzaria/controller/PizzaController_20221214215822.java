@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.com.tech4pizza.pizzaria.model.Pizza;
+//import br.com.tech4pizza.pizzaria.repository.PizzaRepository;
 import br.com.tech4pizza.pizzaria.service.PizzaService;
 
 
@@ -29,25 +31,23 @@ public class PizzaController {
 
   @GetMapping
   public List<Pizza> obterCardapio() {
-    return servico.obterTodasAsPizzas();
+    return servico.obterTodasAsPizzasPorId(Id),
     
   }
 
   @GetMapping("/{id}")
   public Optional<Pizza> obterPizza(@PathVariable String id) {
-    return servico.ObterPizzaPoiId(id);
+    return servico.obte
     
   }
 
   @DeleteMapping("/{id}")
       public void excluirPizza(@PathVariable String id){
-        servico.excluirPizzaPorId(id);
       
       }
   
   @PutMapping ("/{id}")
       public Pizza atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
-        return servico.AtualizartPizzaPorId(id, pizza);
         
       
       }    
