@@ -9,7 +9,6 @@ public interface PizzaService {
   List<Pizza> obterTodasAsPizzas();
   Optional<Pizza> ObterPizzaPoiId(String id);
   Void excluirPizzaPorId(String id);
-  Pizza cadastrarPizza(Pizza pizza);
   
 
     
