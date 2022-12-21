@@ -25,7 +25,7 @@ public class PizzaController {
   private PizzaService servico;
   
   @PostMapping
-  public ResponseEntity<Pizza> cadastrarPizza(@RequestBody Pizza pizza){
+  public ResponseEntity cadastrarPizza(@RequestBody Pizza pizza){
     return new ResponseEntity<>(servico.cadastrarPizza(pizza),HttpStatus.CREATED);
   }
 
