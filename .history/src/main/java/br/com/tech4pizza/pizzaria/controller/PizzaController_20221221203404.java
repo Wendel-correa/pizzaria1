@@ -38,13 +38,13 @@ public class PizzaController {
 
   @GetMapping(value="/{id}")
   public ResponseEntity<Pizza> obterPizza (@PathVariable String id) {
-    Optional<Pizza> retorno = servico.ObterPizzaPorId(id);
+    Optional<Pizza> retorno = servico. obterPizzaPorId(id);
 
     if (retorno.isPresent()){
       return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
     }
     else{
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
 
   @DeleteMapping(value="/{id}")

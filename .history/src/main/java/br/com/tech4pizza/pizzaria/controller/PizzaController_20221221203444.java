@@ -44,7 +44,7 @@ public class PizzaController {
       return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
     }
     else{
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+    return new ResponseEntity<>(HttpStatus.NOT_FOUND);
   }
 
   @DeleteMapping(value="/{id}")

@@ -9,12 +9,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.tech4pizza.pizzaria.model.Pizza;
 import br.com.tech4pizza.pizzaria.service.PizzaService;
 
@@ -31,32 +31,26 @@ public class PizzaController {
   }
 
   @GetMapping
-  public ResponseEntity<List<Pizza>> obterCardapio() {
-    return new ResponseEntity<>(servico.obterTodasAsPizzas(), HttpStatus.OK);
+  public List<Pizza> obterCardapio() {
+    return servico.obterTodasAsPizzas();
     
   }
 
-  @GetMapping(value="/{id}")
-  public ResponseEntity<Pizza> obterPizza (@PathVariable String id) {
-    Optional<Pizza> retorno = servico.ObterPizzaPorId(id);
-
-    if (retorno.isPresent()){
-      return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
-    }
-    else{
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+  @GetMapping("/{id}")
+  public Optional<Pizza> obterPizza(@PathVariable String id) {
+    return servico.ObterPizzaPoiId(id);
+    
   }
 
-  @DeleteMapping(value="/{id}")
-      public ResponseEntity<Void> excluirPizza(@PathVariable String id){
+  @DeleteMapping("/{id}")
+      public void excluirPizza(@PathVariable String id){
         servico.excluirPizzaPorId(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       
       }
   
-  @PutMapping (value="/{id}")
-      public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
-        return new ResponseEntity<>(servico.AtualizartPizzaPorId(id, pizza), HttpStatus.ACCEPTED);
+  @PutMapping ("/{id}")
+      public Pizza atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
+        return servico.AtualizartPizzaPorId(id, pizza);
         
       
       }    

@@ -38,13 +38,8 @@ public class PizzaController {
 
   @GetMapping(value="/{id}")
   public ResponseEntity<Pizza> obterPizza (@PathVariable String id) {
-    Optional<Pizza> retorno = servico.ObterPizzaPorId(id);
-
-    if (retorno.isPresent()){
-      return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
-    }
-    else{
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+    return new ResponseEntity<>(servico.obterPizzaPorId(id), HttpStatus.FOUND);
+    
   }
 
   @DeleteMapping(value="/{id}")
@@ -56,7 +51,7 @@ public class PizzaController {
   
   @PutMapping (value="/{id}")
       public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
-        return new ResponseEntity<>(servico.AtualizartPizzaPorId(id, pizza), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(servico.AtualizartPizzaPorId(id, pizza), HttpStatus.;
         
       
       }    

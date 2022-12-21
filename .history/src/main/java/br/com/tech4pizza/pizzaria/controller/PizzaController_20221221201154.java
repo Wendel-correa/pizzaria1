@@ -38,25 +38,19 @@ public class PizzaController {
 
   @GetMapping(value="/{id}")
   public ResponseEntity<Pizza> obterPizza (@PathVariable String id) {
-    Optional<Pizza> retorno = servico.ObterPizzaPorId(id);
-
-    if (retorno.isPresent()){
-      return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
-    }
-    else{
-    return new ResponseEntity<>(HttpStatus.NOT_FOUND);}
+    return new ResponseEntity<>(servico.ObterPizzaPoiId(id), HttpStatus.FOUND);
+    
   }
 
-  @DeleteMapping(value="/{id}")
-      public ResponseEntity<Void> excluirPizza(@PathVariable String id){
+  @DeleteMapping(value"/{id}")
+      public void excluirPizza(@PathVariable String id){
         servico.excluirPizzaPorId(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
       
       }
   
-  @PutMapping (value="/{id}")
-      public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
-        return new ResponseEntity<>(servico.AtualizartPizzaPorId(id, pizza), HttpStatus.ACCEPTED);
+  @PutMapping ("/{id}")
+      public Pizza atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
+        return servico.AtualizartPizzaPorId(id, pizza);
         
       
       }    
