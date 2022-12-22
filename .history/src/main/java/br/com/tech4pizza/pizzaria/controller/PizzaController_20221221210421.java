@@ -57,7 +57,7 @@ public class PizzaController {
   
       @PutMapping("/{id}")
       public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza){
-        Optional<Pizza> retorno = servico.atualizarPizzaPorId(id, pizza); 
+        Optional<Pizza> retorno = servico.atualizarPorId(id, pizza); 
     
         if (retorno.isPresent()) {
           return new ResponseEntity<>(retorno.get(), HttpStatus.ACCEPTED);

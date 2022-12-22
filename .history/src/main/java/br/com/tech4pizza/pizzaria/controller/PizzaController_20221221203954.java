@@ -45,7 +45,7 @@ public class PizzaController {
     }
     else{
     return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-     }
+  }
   }
 
   @DeleteMapping(value="/{id}")
@@ -55,15 +55,9 @@ public class PizzaController {
       
       }
   
-      @PutMapping("/{id}")
-      public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza){
-        Optional<Pizza> retorno = servico.atualizarPizzaPorId(id, pizza); 
-    
-        if (retorno.isPresent()) {
-          return new ResponseEntity<>(retorno.get(), HttpStatus.ACCEPTED);
-        } else {
-          return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
-        }
+  @PutMapping (value="/{id}")
+      public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza ){
+        return new ResponseEntity<>(servico.AtualizartPizzaPorId(id, pizza), HttpStatus.ACCEPTED);
         
       
       }    

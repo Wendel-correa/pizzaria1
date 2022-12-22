@@ -35,7 +35,7 @@ public class PizzaserviceImpl implements PizzaService{
     }
 
     @Override
-  public Optional<Pizza> atualizarPizzaPorId (String id, Pizza pizza) {
+  public Optional<Pizza> aatua(String id, Pizza pizza) {
     Optional<Pizza> retorno = repositorio.findById(id);
 
     if (retorno.isPresent()) {
