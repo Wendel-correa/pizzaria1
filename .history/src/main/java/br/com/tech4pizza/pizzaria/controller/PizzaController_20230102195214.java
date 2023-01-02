@@ -2,7 +2,6 @@ package br.com.tech4pizza.pizzaria.controller;
 
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,10 +13,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.tech4pizza.pizzaria.model.Pizza;
 import br.com.tech4pizza.pizzaria.service.PizzaService;
-import br.com.tech4pizza.pizzaria.shared.PizzaDto;
 
 
 @RestController
@@ -39,7 +36,7 @@ public class PizzaController {
 
   @GetMapping(value="/{id}")
   public ResponseEntity<PizzaDto> obterPizza (@PathVariable String id) {
-    Optional<PizzaDto> retorno = servico.ObterPizzaPorId(id);
+    Optional<Pizza> retorno = servico.ObterPizzaPorId(id);
 
     if (retorno.isPresent()){
       return new ResponseEntity<>(retorno.get(), HttpStatus.FOUND);
