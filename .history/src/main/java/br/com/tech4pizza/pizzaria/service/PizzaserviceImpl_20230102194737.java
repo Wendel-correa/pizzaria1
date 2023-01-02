@@ -26,8 +26,7 @@ public class PizzaserviceImpl implements PizzaService{
       Optional <Pizza> pizza = repositorio.findById(id);  
       if(pizza.isPresent()){
       return Optional.of(new ModelMapper().map(pizza.get(), PizzaDto.class)); 
-      }
-      return Optional.empty(); 
+      } 
     }
 
     @Override

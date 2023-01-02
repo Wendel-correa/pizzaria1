@@ -3,7 +3,6 @@ package br.com.tech4pizza.pizzaria.service;
 import java.util.List;
 import java.util.Optional;
 import br.com.tech4pizza.pizzaria.model.Pizza;
-import br.com.tech4pizza.pizzaria.shared.PizzaDto;
 
 
 public interface PizzaService {
