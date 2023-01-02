@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import br.com.tech4pizza.pizzaria.shared.PizzaCompletoDto;
 
 
-public interface PizzaRepository extends MongoRepository<PizzaCompletoDto, String> {
+public interface PizzaRepository extends MongoRepository<PizzaCompletoDto,  String> {
   
 }

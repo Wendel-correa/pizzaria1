@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.tech4pizza.pizzaria.model.Pizza;
 import br.com.tech4pizza.pizzaria.service.PizzaService;
-import br.com.tech4pizza.pizzaria.shared.PizzaCompletoDto;
 import br.com.tech4pizza.pizzaria.shared.PizzaDto;
 
 
@@ -32,7 +32,7 @@ public class PizzaController {
   }
 
   @GetMapping
-  public ResponseEntity<List<PizzaCompletoDto>> obterCardapio() {
+  public ResponseEntity<List<Pizza>> obterCardapio() {
     return new ResponseEntity<>(servico.obterTodasAsPizzas(), HttpStatus.OK);
     
   }
@@ -57,8 +57,8 @@ public class PizzaController {
       }
   
       @PutMapping("/{id}")
-      public ResponseEntity<PizzaCompletoDto> atualizarPizza(@PathVariable String id, @RequestBody PizzaCompletoDto pizza){
-        Optional<PizzaCompletoDto> retorno = servico.atualizarPizzaPorId(id, pizza); 
+      public ResponseEntity<Pizza> atualizarPizza(@PathVariable String id, @RequestBody Pizza pizza){
+        Optional<Pizza> retorno = servico.atualizarPizzaPorId(id, pizza); 
     
         if (retorno.isPresent()) {
           return new ResponseEntity<>(retorno.get(), HttpStatus.ACCEPTED);

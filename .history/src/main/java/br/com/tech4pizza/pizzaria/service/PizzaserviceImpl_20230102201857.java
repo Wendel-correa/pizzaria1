@@ -23,7 +23,7 @@ public class PizzaserviceImpl implements PizzaService{
 
     @Override
     public Optional<PizzaDto> ObterPizzaPorId(String id) {
-      Optional <PizzaCompletoDto> pizza = repositorio.findById(id);  
+      Optional <PizzaDto> pizza = repositorio.findById(id);  
       if(pizza.isPresent()){
       return Optional.of(new ModelMapper().map(pizza.get(), PizzaDto.class)); 
       }

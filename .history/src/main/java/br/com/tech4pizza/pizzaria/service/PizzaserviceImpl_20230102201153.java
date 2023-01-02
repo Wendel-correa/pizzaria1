@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import br.com.tech4pizza.pizzaria.repository.PizzaRepository;
 import br.com.tech4pizza.pizzaria.shared.PizzaCompletoDto;
 import br.com.tech4pizza.pizzaria.shared.PizzaDto;
@@ -23,7 +22,7 @@ public class PizzaserviceImpl implements PizzaService{
 
     @Override
     public Optional<PizzaDto> ObterPizzaPorId(String id) {
-      Optional <PizzaCompletoDto> pizza = repositorio.findById(id);  
+      Optional <PizzaDto> pizza = repositorio.findById(id);  
       if(pizza.isPresent()){
       return Optional.of(new ModelMapper().map(pizza.get(), PizzaDto.class)); 
       }
