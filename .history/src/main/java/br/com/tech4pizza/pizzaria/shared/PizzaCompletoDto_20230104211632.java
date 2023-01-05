@@ -3,19 +3,15 @@ package br.com.tech4pizza.pizzaria.shared;
 import java.util.List;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
 
 
 public class PizzaCompletoDto {
   private String id;
-  @NotEmpty (message = "Campo saber dece ser informado")
-  @NotBlank (message = "Tem que informar os caracteres")
+  @NotEmpty (message =)
+  @NotBlank
   private String sabor;
   private List<String> ingredientes;
-  @Size (min=1, max=3, message= "Informe Peq, Med, Gra ou Gig")
   private String tamanho;
-  @Positive(message = "Valor deve ser informado")
   private Double valor;
 
   

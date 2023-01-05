@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.tech4pizza.pizzaria.service.PizzaService;
 import br.com.tech4pizza.pizzaria.shared.PizzaCompletoDto;
 import br.com.tech4pizza.pizzaria.shared.PizzaDto;
-import jakarta.validation.Valid;
 
 
 @RestController
@@ -26,7 +25,7 @@ public class PizzaController {
   private PizzaService servico;
   
   @PostMapping
-  public ResponseEntity<PizzaCompletoDto> cadastrarPizza(@RequestBody @Valid PizzaCompletoDto pizza){
+  public ResponseEntity<PizzaCompletoDto> cadastrarPizza(@RequestBody  PizzaCompletoDto pizza){
     return new ResponseEntity<>(servico.cadastrarPizza(pizza),HttpStatus.CREATED);
   }
 

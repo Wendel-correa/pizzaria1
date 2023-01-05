@@ -13,7 +13,7 @@ public class PizzaCompletoDto {
   @NotBlank (message = "Tem que informar os caracteres")
   private String sabor;
   private List<String> ingredientes;
-  @Size (min=1, max=3, message= "Informe Peq, Med, Gra ou Gig")
+  @Size (min=max=3, message= "Informe Peq, Med, Gra ou Gig")
   private String tamanho;
   @Positive(message = "Valor deve ser informado")
   private Double valor;
