@@ -3,7 +3,6 @@ package br.com.tech4pizza.pizzaria.util;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -24,7 +23,7 @@ public class Validacao extends ResponseEntityExceptionHandler  {
                                            .map(e -> e.getDefaultMessage())
                                            .collect(Collectors.toList());
 
-        return new ResponseEntity<>(mensagens, HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<mensagens>
     }
  
     

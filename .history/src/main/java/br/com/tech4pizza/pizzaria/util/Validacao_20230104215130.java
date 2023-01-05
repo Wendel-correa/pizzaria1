@@ -24,7 +24,7 @@ public class Validacao extends ResponseEntityExceptionHandler  {
                                            .map(e -> e.getDefaultMessage())
                                            .collect(Collectors.toList());
 
-        return new ResponseEntity<>(mensagens, HttpStatus.NOT_ACCEPTABLE);
+        return new ResponseEntity<>(mensagens, HttpStatus.Not_)
     }
  
     
